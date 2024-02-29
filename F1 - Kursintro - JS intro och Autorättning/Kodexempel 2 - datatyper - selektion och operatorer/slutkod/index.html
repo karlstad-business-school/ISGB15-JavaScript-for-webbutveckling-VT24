@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kodexempel 2</title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+			//Funktion som skriver ut text på skärmen inom en p-tagg
+			function write(text){
+				document.write("<p>" + text + "</p>");
+			}
+
+
+			let tal1, tal2 = 32;
+
+			tal1 = 10;
+			tal1++;
+			tal1 += 1;
+
+			write(++tal1);
+			write(tal1);
+			write(tal2);
+			
+
+			if(typeof tal1 == "number"){
+				write("Tal1 är ett nummer");
+			}
+
+
+			let student = false;
+			let teacher = true;
+
+			if(teacher){
+				write("Jag är en lärare");
+			}
+
+			write(0.1 + 0.2);
+
+			
+
+			if(95 == "95"){
+				write("Talet 95 har samma värde som strängen '95'");
+				write('Talet 95 har samma värde som strängen "95"');
+			}
+
+			if(95 === parseInt("95")){
+				write("Detta är sant!");
+			}
+			
+		</script>
+	</body>
+</html>
