@@ -32,6 +32,42 @@
                 'Jämtlands län',
                 'Gotlands län',
             ];
+            
+            console.log(counties);
+            counties.sort();
+            console.log(counties);
+
+            document.write("<ul>");
+            for(let i = 0; i < counties.length; i++){
+                //document.write("<li>" + counties[i] + "</li>");
+            }
+
+
+            counties.forEach(function(county, index){
+                document.write("<li>" + index + ": " + county + "</li>");
+            });
+
+            document.write("</ul>");
+
+            
+
+
+            let numbers = [11, 5, 6, 8, 32, 123, 13, 123, 83, 3, 5 ,1];
+
+           
+
+            console.log(numbers);
+            numbers.sort(function(a, b){
+                return a - b;
+            });
+            console.log(numbers);
+
+            numbers.forEach(function(number){
+                console.log(number);
+            });
+
+            
+
 
         </script>
     </body>

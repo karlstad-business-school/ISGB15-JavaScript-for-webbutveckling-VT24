@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kodexempel 3</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	</head>
+	<body>
+		<div id="container">
+			<div id="messages">
+				<p class="message">Carl: Hi | 2021-03-05</p>
+				<p class="message">Maria: Hello | 2021-03-05</p>
+			</div>
+			<div id="buttons">
+				<input type="text" id="input">
+				<input type="button" id="btn_send" value="Send">
+			</div>
+		</div>
+
+
+		<script type="text/javascript">
+			let input = document.getElementById("input");
+			let button = document.querySelector("#btn_send");
+			let messages = document.getElementById("messages");
+
+			console.log(input, button, messages);
+
+			function createMessage(username, text){
+				let p = document.createElement("p");
+				p.setAttribute("class", "message");
+
+				let date = new Date();
+				//let year = date.getFullYear();
+				//let month = date.getMonth()
+				//let day = date.getDate();
+				let time = date.toLocaleTimeString("sv-SE");
+				console.log(date, time);
+
+				p.textContent = username + ": " + text + " | " + time;
+
+				messages.appendChild(p);
+
+				if(text == "hej"){
+					createMessage("Bot", "Hej hej!");
+				}
+			}
+
+			createMessage("Alexander", "hej");
+
+			button.addEventListener("click", function(){
+				createMessage("Alexander", input.value);
+			});	
+			
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Kodexempel 2</title>
+
+</head>
+	<body>
+
+
+
+		<script type="text/javascript">
+			"use strict"
+
+			let human = {
+				name: "Carl",
+				age: 36,
+				length: 190,
+				job: "Webbutvecklare",
+
+				setName: function(name){
+					this.name = name;
+				},
+
+				getName: function(){
+					return this.name;
+				},
+			}
+
+			console.log(human.getName(), human.name);
+			human.name = "Alexander";
+			console.log(human.name);
+			console.log(human);
+			//document.write(human);	
+
+			let carl = Object.create(human);
+			console.log(carl);
+
+
+
+			function Human(name, age, length){
+				this.name = name;
+				this.age = age;
+				this.length = length;
+
+				this.print = function(){
+					document.write("<p>" + this.name +  " | " + this.age + "</p>");
+				}
+			}
+
+			let alexander = new Human("Alexander", 61, 130);
+			alexander.print();
+			console.log(alexander);
+		
+
+			
+
+			var nameList = [
+				'Alexander',
+				'Carl',
+				'Maria',
+				"Pierre",
+				"Katarina",
+				"Peter",
+				"Lisa",
+				"Elin"
+			];
+
+
+
+			let arr = [];
+			function createRandomHumans(q){
+				for(let i = 0; i < q; i++){
+					let name = nameList[Math.floor(Math.random() * nameList.length)];
+					let age = Math.floor(Math.random() * 50) + 10;
+					let length = Math.floor(Math.random() * 150) + 60;
+
+					let h = new Human(name, age, length);
+					arr.push(h);
+					h.print();
+				}
+			}
+
+			createRandomHumans(20);
+
+			
+
+		</script>
+	</body>
+</html> 
