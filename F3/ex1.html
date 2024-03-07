@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="sv">
+	<head>
+        <meta charset="utf-8" /> 
+        <title>
+			DOM och Objektorientering i JS		
+        </title>	
+	</head>
+	<body>
+        <p data-id="1">1</p>
+		<p data-id="2">2</p>
+		<p data-id="3">3</p>
+		<p data-id="4">4</p>
+		<p>Ett</p>
+		<p>Två</p>
+		
+		<div><p>Test</p></div>
+
+		<script>
+		
+			'use strict';
+
+			function searchDOM() {
+				
+				let bodyRef = document.querySelector( 'body' );
+				console.log( bodyRef );
+
+				let pRefsOne = document.querySelectorAll( 'p' );
+				
+				console.log(pRefsOne, pRefsOne.length );
+
+				for(let i = 0; i < pRefsOne.length; i++) {
+					console.log( pRefsOne.item(i) );
+				}
+				
+				let pRefsTwo = document.querySelectorAll( 'p[data-id]' );
+				
+				console.log( pRefsTwo, pRefsTwo.length );
+
+				for(let j = 0; j < pRefsTwo.length; j++) {
+					console.log( pRefsTwo.item(j) );
+				}
+				
+			}
+			
+			searchDOM();
+			
+		</script>
+
+		<script>
+			window.Date.prototype.svDatePrototype = function() {
+	
+				let currentYear = this.getFullYear();
+				let currentMonth = this.getMonth() + 1;
+				let currentDate = this.getDate();
+				
+				if( currentMonth < 10 ) {
+					currentMonth = '0' + currentMonth;
+				}
+				
+				if( currentDate < 10 ) {
+					currentDate = '0' + currentDate;
+				}
+				
+				return currentYear + '-' + currentMonth + '-' + currentDate;
+
+			}
+
+			class myDate extends window.Date {
+
+				svDateClass() {
+
+					let currentYear = this.getFullYear();
+					let currentMonth = this.getMonth() + 1;
+					let currentDate = this.getDate();
+					
+					if( currentMonth < 10 ) {
+						currentMonth = '0' + currentMonth;
+					}
+					
+					if( currentDate < 10 ) {
+						currentDate = '0' + currentDate;
+					}
+					
+					return currentYear + '-' + currentMonth + '-' + currentDate;
+				}
+
+			}
+
+			let newDate1 = new Date();
+			console.log( newDate1.svDatePrototype() );
+
+			let newDate2 = new myDate();
+			console.log( newDate2.svDateClass() );
+			
+		</script>
+		
+    </body>
+</html>
