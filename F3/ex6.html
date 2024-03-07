@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="sv">
+	<head>
+        <meta charset="utf-8" /> 
+        <title>
+			JavaScript för webbutveckling ISGB15		
+        </title>	
+	</head>
+	<body>
+        <div>
+            <p id="errorMsg" style="color: red;"></p>
+        </div>
+		
+		<form action="ex6.html" method="post">
+		
+			<input type="text" title="nickName" name="nickName" /> <!-- oninput="checkInput(this);"/> -->
+			<br />	
+
+			<input type="text" title="seconds" name="seconds" /> <!-- oninput="checkInput(this);"/> -->
+			<br />	
+
+			<input type="submit" value="Visa" />
+			<input type="reset" value="Rensa" />
+			
+		</form>
+		
+		<script>
+
+			function checkInput() {
+				console.log( 'Hej', this.value, this.value.length, this );//obj.value, obj.value.length );
+			}
+
+			//document.querySelector('[title=nickName]').oninput = checkInput;
+			//document.querySelector('[title=seconds]').oninput = checkInput;
+
+			document.querySelector('[title=nickName]').oninput = function () {
+				console.log( 'Hej', this.value, this.value.length, this );
+			}
+
+			document.querySelector('[title=seconds]').oninput = function () {
+				console.log( 'Hej', this.value, this.value.length, this );
+			}
+
+
+		</script>
+		
+    </body>
+</html>
