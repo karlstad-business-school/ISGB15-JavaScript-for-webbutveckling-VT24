@@ -39,10 +39,74 @@
     <a href="https://www.kau.se/" id="kau-link">kau.se</a>
 
     <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
 
 
     <script>
-   
+
+        let lis = document.querySelectorAll("li");
+        console.log(lis);
+
+        lis.forEach((li) =>{
+            li.addEventListener("click", (e) => {
+                console.log(e.target, e.currentTarget);
+                e.stopPropagation();
+            });
+        });
+        /*lis.forEach(function(li){
+
+        });
+        for(let i = 0; i < lis.lenght; i++){
+            let li = lis[i];
+        }*/
+        
+        let a = document.getElementById("kau-link");
+        a.addEventListener("click", function(event){
+            console.log("click");
+            event.preventDefault();
+        });
+
+        document.querySelector("body").addEventListener("keydown", function(e){
+            let code = e.code;
+            let key = e.key;
+            let keyCode = e.keyCode;
+
+            console.log(code, key, keyCode);
+            console.log(e.ctrlKey);
+            if(e.ctrlKey && key == "s"){
+
+                e.preventDefault();
+            }
+        });
+
+
+        let cubes = document.querySelectorAll(".cube");
+        let currentCube = null;
+
+        for(let i = 0; i < cubes.length; i++){
+            let cube = cubes[i];
+
+            cube.addEventListener("mousedown", (e) => {
+                //console.log("mousedown");
+                currentCube = cube;
+                window.addEventListener("mousemove", moveCube);
+                window.addEventListener("mouseup", (e) => {
+                    window.removeEventListener("mousemove", moveCube);
+                    currentCube = null;
+                });
+            });
+        }
+
+        function moveCube(event){
+            currentCube.style.left = event.clientX + "px";
+            currentCube.style.top = event.clientY + "px";
+        }
+
     </script>
 </body>
 </html>

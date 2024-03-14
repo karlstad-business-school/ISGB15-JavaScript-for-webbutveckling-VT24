@@ -26,6 +26,33 @@
         let checkbox = document.getElementById("input-checkbox");
         let radio1 = document.getElementById("input-radio1");
         let radio2 = document.getElementById("input-radio2");
+
+        let radio = document.querySelector("input[name='radio']");
+        let radios = document.querySelectorAll("input[name='radio']");
+        console.log(radios);
+        console.log(radio);
+
+        text.value = "hejhej";
+        console.log(text.value);
+
+        color.value = "#837561";
+        //color.value = "white";
+        console.log(color.value);
+
+        form.oninput = function(){
+           // console.log(text.value);
+
+            if(text.value.length > 4){
+                console.log("Rätt namn!");
+                if(color.value == "#c4c4c4"){
+                    console.log("Rätt färg!");
+                    if(text.value == color.value && checkbox.checked){
+                        console.log("Allt korrekt!");
+
+                    }
+                }
+            }
+        }
     </script>
     
 </body>
