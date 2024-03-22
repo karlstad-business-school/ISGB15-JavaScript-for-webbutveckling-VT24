@@ -5,7 +5,7 @@ window.addEventListener('load', ()=> {
 	
 	//renderPage();
 	//renderPageInnerHTML();
-	//renderPageTheRightWay();
+	renderPageTheRightWay();
 });
 
 function renderPage() {
@@ -18,7 +18,7 @@ function renderPage() {
 	document.writeln('<button class="btn btn-primary" onclick="btnClick();">Push!</button>');
 	document.writeln('</main>');
 	
-	
+	//document.writeln('<main><h1>dfgsfksdfkh</h1></main>');
 }
 
 function renderPageInnerHTML() {
@@ -32,6 +32,31 @@ function renderPageInnerHTML() {
 
 function renderPageTheRightWay() {
 	
+	let banan = document.querySelector('body');
+	let main = document.createElement('main');
+
+	banan.appendChild(main);
+
+	let h1 = document.createElement('h1');
+	let textNode = document.createTextNode('Html skapad vid load');
+	h1.appendChild(textNode);
+	main.appendChild(h1);
+
+	let knapp = document.createElement('button');
+
+	let knapptxt = document.createTextNode('Push me!');
+	knapp.appendChild(knapptxt);
+	knapp.classList.add('btn','btn-primary');
+	knapp.addEventListener('click', btnClick);
+
+	main.appendChild(knapp);
+
+
+
+
+
+
+
 }
 
 function btnClick(oEvt) {

@@ -41,14 +41,42 @@ let jsonstring =`[
 //()={}, shortcode för function() {}
 window.addEventListener('load', ()=> {
 	renderPage();
+	document.querySelector('body').addEventListener('click', bodyClicked);
 	
 });
 
 function renderPage() {
 	
+	let table = document.querySelector('table.table-bordered');
+
+	let counter = 1;
+
+	for(let rad=1; rad<=10; rad++) {
+		let tr = document.createElement('tr');
+
+		for(let kol=1; kol<=10;kol++) {
+			let fisk = document.createElement('td');
+			fisk.textContent = counter;
+			fisk.classList.add('p-3');
+			counter++;
+			tr.appendChild(fisk);
+		}
+
+		table.appendChild(tr);
+	}
 	
 	
 	
+}
+
+function bodyClicked(oEvt) {
+	console.log('Target är: ' + oEvt.target.nodeName);
+	console.log('CurrentTarget ät: ' + oEvt.currentTarget.nodeName);
+
+	if(oEvt.target.nodeName==='TD') {
+		oEvt.target.style.backgroundColor='red';
+	}
+
 }
 
 
